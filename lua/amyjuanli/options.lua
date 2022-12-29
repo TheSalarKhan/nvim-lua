@@ -2,7 +2,7 @@
 
 vim.scriptencoding = 'utf-8'
 
-local opt=vim.opt 
+local opt = vim.opt
 opt.encoding = 'utf-8'
 opt.fileencoding = 'utf-8'
 
@@ -11,14 +11,15 @@ vim.wo.number = true -- show window line numbers
 opt.title = true
 opt.autoindent = true
 opt.smartindent = true
-opt.hlsearch = true
+opt.hlsearch = false
+opt.incsearch = true
 opt.backup = false
 opt.showcmd = true
 opt.cmdheight = 1
 opt.laststatus = 2
 opt.expandtab = true
 opt.scrolloff = 10
-opt.shell = 'fish'
+opt.shell = 'zsh'
 opt.backupskip = { '/tmp/*', '/private/tmp/*' }
 opt.inccommand = 'split'
 opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
@@ -31,7 +32,7 @@ opt.wrap = true
 opt.backspace = { 'start', 'eol', 'indent' }
 opt.path:append { '**' } -- Finding files - Search down into subfolders
 opt.wildignore:append { '*/node_modules/*' }
-opt.mouse='a' -- Allow the use of mouse
+opt.mouse = 'a' -- Allow the use of mouse
 
 -- Color
 opt.cursorline = true
@@ -55,3 +56,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 opt.formatoptions:append { 'r' }
 
 opt.clipboard:append { 'unnamedplus' }
+
+-- netrw options
+vim.g.netrw_banner = 1
+-- vim.g.netrw_keepdir = 0
+vim.g.netrw_winsize = 75
+vim.g.netrw_list_style = 3
+vim.g.netrw_browse_split = 4
+vim.g.netrw_preview = 1

@@ -98,4 +98,17 @@ packer.startup(function(use)
   -- use 'github/copilot.vim'
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
+
+  -- Rose Pine Theme
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+      vim.cmd('colorscheme rose-pine')
+    end
+  })
+
+  -- Commenting
+  use('JoosepAlviste/nvim-ts-context-commentstring')
+  use('terrortylor/nvim-comment')
 end)
