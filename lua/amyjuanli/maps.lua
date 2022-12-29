@@ -32,8 +32,13 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 keymap.set('n', '<leader>pf', vim.cmd.Ex)
 keymap.set('n', '<leader>n', '<Cmd>bn<CR>')
 keymap.set('n', '<leader>p', '<Cmd>bp<CR>')
--- keymap.set('n', '<leader>q', '<Cmd>bp|sp|bn|bd<CR>')
+keymap.set('n', '<leader>q', '<Cmd>bd<CR>')
 keymap.set('n', '<leader>l', '<Cmd>ls<CR>')
+
+-- In both of the functions below we tried failed attempts at creating the perfect
+-- buffer delete function that would keep the window open while deleting all buffers
+
+
 
 -- local function get_listed_buffers_count()
 --   local buffers = vim.api.nvim_list_bufs()
@@ -65,28 +70,28 @@ keymap.set('n', '<leader>l', '<Cmd>ls<CR>')
 -- keymap.set("n", "<leader>q", ":lua CloseBufferAndOpenNetrwIfNoBuffers()<CR>", { silent = false })
 --
 
-function BufferDelete()
-  if vim.api.nvim_buf_get_option(0, "modified") then
-    vim.api.nvim_command("echohl ErrorMsg")
-    vim.api.nvim_command("echomsg \"No write since last change. Not closing buffer.\"")
-    vim.api.nvim_command("echohl NONE")
-  else
-    local total_nr_buffers = 0
-    local n_bufs = vim.api.nvim_call_function("bufnr", { "$" })
-    for i = 1, n_bufs do
-      if vim.api.nvim_call_function("buflisted", { i }) then
-        total_nr_buffers = total_nr_buffers + 1
-      end
-    end
-    if total_nr_buffers == 1 then
-      vim.api.nvim_command("bdelete")
-      print("Buffer deleted. Created new buffer.")
-    else
-      vim.api.nvim_command("bprevious")
-      vim.api.nvim_command("bdelete #")
-      print("Buffer deleted.")
-    end
-  end
-end
-
-keymap.set("n", "<leader>q", ":lua BufferDelete()<CR>", { silent = false })
+-- function BufferDelete()
+--   if vim.api.nvim_buf_get_option(0, "modified") then
+--     vim.api.nvim_command("echohl ErrorMsg")
+--     vim.api.nvim_command("echomsg \"No write since last change. Not closing buffer.\"")
+--     vim.api.nvim_command("echohl NONE")
+--   else
+--     local total_nr_buffers = 0
+--     local n_bufs = vim.api.nvim_call_function("bufnr", { "$" })
+--     for i = 1, n_bufs do
+--       if vim.api.nvim_call_function("buflisted", { i }) then
+--         total_nr_buffers = total_nr_buffers + 1
+--       end
+--     end
+--     if total_nr_buffers == 1 then
+--       vim.api.nvim_command("bdelete")
+--       print("Buffer deleted. Created new buffer.")
+--     else
+--       vim.api.nvim_command("bprevious")
+--       vim.api.nvim_command("bdelete #")
+--       print("Buffer deleted.")
+--     end
+--   end
+-- end
+--
+-- keymap.set("n", "<leader>q", ":lua BufferDelete()<CR>", { silent = false })
