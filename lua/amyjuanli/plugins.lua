@@ -85,7 +85,7 @@ packer.startup(function(use)
   --   cmd = "Telescope",
   -- })
 
-  use 'nvim-telescope/telescope-file-browser.nvim'
+  -- use 'nvim-telescope/telescope-file-browser.nvim'
 
   use 'folke/zen-mode.nvim'
   use({
@@ -107,6 +107,9 @@ packer.startup(function(use)
       vim.cmd('colorscheme rose-pine')
     end
   })
+
+  -- night theme
+  use({ 'NightCS/night.nvim', as = 'night' })
 
   -- Commenting
   use('JoosepAlviste/nvim-ts-context-commentstring')

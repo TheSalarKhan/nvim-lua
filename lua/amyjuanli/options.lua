@@ -61,8 +61,8 @@ opt.clipboard:append { 'unnamedplus' }
 -- got inspiration from: https://shapeshed.com/vim-netrw/
 -- here's a complete list of options: https://neovim.io/doc/user/pi_netrw.html
 -- -- netrw options
--- vim.g.netrw_banner = 1
--- -- vim.g.netrw_keepdir = 0
+vim.g.netrw_banner = 1
+vim.g.netrw_keepdir = 0
 -- vim.g.netrw_winsize = 75
 -- vim.g.netrw_list_style = 3
 -- vim.g.netrw_browse_split = 4

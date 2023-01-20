@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/Users/msalar/.local/share/nvim/site/pack/packer/start/neosolarized.nvim",
     url = "https://github.com/svrana/neosolarized.nvim"
   },
+  night = {
+    loaded = true,
+    path = "/Users/msalar/.local/share/nvim/site/pack/packer/start/night",
+    url = "https://github.com/NightCS/night.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/msalar/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -219,11 +224,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/msalar/.local/share/nvim/site/pack/packer/start/tailwind-highlight.nvim",
     url = "https://github.com/princejoogie/tailwind-highlight.nvim"
-  },
-  ["telescope-file-browser.nvim"] = {
-    loaded = true,
-    path = "/Users/msalar/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
-    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

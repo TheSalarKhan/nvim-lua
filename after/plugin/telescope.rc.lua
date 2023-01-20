@@ -1,11 +1,12 @@
-local status, telescope = pcall(require, "telescope")
+-- local status, telescope = pcall(require, "telescope")
+local status, _ = pcall(require, "telescope")
 if (not status) then return end
-local actions = require('telescope.actions')
+-- local actions = require('telescope.actions')
 local builtin = require("telescope.builtin")
 
-local function telescope_buffer_dir()
-  return vim.fn.expand('%:p:h')
-end
+-- local function telescope_buffer_dir()
+--   return vim.fn.expand('%:p:h')
+-- end
 
 -- local fb_actions = require "telescope".extensions.file_browser.actions
 
@@ -64,18 +65,18 @@ end)
 -- end)
 
 -- Load telescope-file-browser
-telescope.load_extension("file_browser")
-vim.keymap.set("n", "<space>fb", function()
-  telescope.extensions.file_browser.file_browser({
-    path = "%:p:h",
-    cwd = telescope_buffer_dir(),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-    -- previewer = false,
-    initial_mode = "normal",
-    -- layout_config = { height = 40 }
-  })
-end)
+-- telescope.load_extension("file_browser")
+-- vim.keymap.set("n", "<space>fb", function()
+--   telescope.extensions.file_browser.file_browser({
+--     path = "%:p:h",
+--     cwd = telescope_buffer_dir(),
+--     respect_gitignore = false,
+--     hidden = true,
+--     grouped = true,
+--     -- previewer = false,
+--     initial_mode = "normal",
+--     -- layout_config = { height = 40 }
+--   })
+-- end)
 
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
